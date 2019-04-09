@@ -119,7 +119,6 @@ if __name__ == "__main__":
         for word in words:
             word = word.strip('\n')
             stop_words.append(word)
-        stop_words.append('-')
     inset = []
     max_set_len = 0
     for line in lines:
@@ -176,6 +175,8 @@ if __name__ == "__main__":
 
     with open(argv[2],'w') as f:
         for item in ls:
+            if item[0] == ['-']:
+                continue
             for i in item[0]:
                 f.write(str(i) + ' ')
             f.write(str(item[1]) + '\n');
